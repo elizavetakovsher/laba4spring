@@ -1,19 +1,35 @@
 package com.epam.web.logic;
 
+import com.epam.web.controllers.RestController;
 import com.epam.web.entity.Triangle;
+import com.epam.web.exceptions.TriangleCalculatorException;
+import com.epam.web.logic.validator.TriangleValidator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TriangleCalculator {
-    public double calculatePerimeter(Triangle triangle) {
+    private TriangleValidator triangleValidator=new TriangleValidator();
+    private Logger logger = LoggerFactory.getLogger(TriangleCalculator.class);
+    public double calculatePerimeter(Triangle triangle) throws TriangleCalculatorException {
+        if(!triangleValidator.isValidTriangle(triangle)){
+            logger.error("Triangle is not exist");
+            throw new TriangleCalculatorException("Triangle is not exist");
+        }
         return triangle.getFistSide() + triangle.getSecondSide() + triangle.getThirdSide();
     }
 
-    private double calculateSemiPerimeter(Triangle triangle) {
+    private double calculateSemiPerimeter(Triangle triangle) throws TriangleCalculatorException {
         return calculatePerimeter(triangle) / 2;
     }
 
-    public double calculateSquare(Triangle triangle) {
+    public double calculateSquare(Triangle triangle) throws TriangleCalculatorException {
+        if(!triangleValidator.isValidTriangle(triangle)){
+            logger.error("Triangle is not exist");
+            throw new TriangleCalculatorException("Triangle is not exist");
+        }
         double firstSide = triangle.getFistSide();
         double secondSide = triangle.getSecondSide();
         double thirdSide = triangle.getThirdSide();
