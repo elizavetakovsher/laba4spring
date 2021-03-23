@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.web.bind.annotation.RestController
 public class TriangleController {
-    @Autowired
-    private TriangleCalculator calculator;
 
     @GetMapping("/calculateTriangle")
     public TriangleParameters calculateTriangle(@RequestParam double firstSide,
