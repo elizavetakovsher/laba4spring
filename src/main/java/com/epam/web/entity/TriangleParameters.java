@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TriangleParameters {
 
-    @JsonProperty("square")
+    @JsonProperty
     private double square;
-    @JsonProperty("perimeter")
+    @JsonProperty
     private double perimeter;
 
     public TriangleParameters(double square, double perimeter) {

@@ -1,10 +1,10 @@
-package com.epam.web.logic;
+package com.epam.web.logic.calculator;
 
 import com.epam.web.entity.Triangle;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TriangleCalculator {
+public class TriangleCalculator implements Calculator<Triangle> {
     public double calculatePerimeter(Triangle triangle) {
         return triangle.getFistSide() + triangle.getSecondSide() + triangle.getThirdSide();
     }
