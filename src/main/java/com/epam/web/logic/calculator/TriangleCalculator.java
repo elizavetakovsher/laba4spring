@@ -1,12 +1,5 @@
 package com.epam.web.logic.calculator;
 
-import com.epam.web.controllers.RestController;
-import com.epam.web.entity.Triangle;
-import com.epam.web.exceptions.TriangleCalculatorException;
-import com.epam.web.logic.validator.TriangleValidator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
