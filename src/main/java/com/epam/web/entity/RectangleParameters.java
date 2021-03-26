@@ -2,14 +2,13 @@ package com.epam.web.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TriangleParameters {
-
-    @JsonProperty("Triangle Square")
+public class RectangleParameters {
+    @JsonProperty("Rectangle Square")
     private double square;
-    @JsonProperty("Triangle Perimeter")
+    @JsonProperty("Rectangle Perimeter")
     private double perimeter;
 
-    public TriangleParameters(double square, double perimeter) {
+    public RectangleParameters(double square, double perimeter) {
         this.square = square;
         this.perimeter = perimeter;
     }

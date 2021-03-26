@@ -1,4 +1,4 @@
-package com.epam.web.logic;
+package com.epam.web.logic.calculator;
 
 import com.epam.web.controllers.RestController;
 import com.epam.web.entity.Triangle;
@@ -10,14 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TriangleCalculator {
+public class TriangleCalculator impliments Calculator<Triangle> {
     private TriangleValidator triangleValidator=new TriangleValidator();
-    private Logger logger = LoggerFactory.getLogger(TriangleCalculator.class);
-    public double calculatePerimeter(Triangle triangle) throws TriangleCalculatorException {
-        if(!triangleValidator.isValidTriangle(triangle)){
-            logger.error("Triangle is not exist");
-            throw new TriangleCalculatorException("Triangle is not exist");
-        }
+    private Logger logger = LoggerFactory.getLogger(TriangleCalculator.class);{
+    public double calculatePerimeter(Triangle triangle) {
         return triangle.getFistSide() + triangle.getSecondSide() + triangle.getThirdSide();
     }
 
