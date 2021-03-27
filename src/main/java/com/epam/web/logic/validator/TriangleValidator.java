@@ -8,9 +8,6 @@ public class TriangleValidator {
         double firstSide= triangle.getFistSide();
         double secondSide=triangle.getSecondSide();
         double thirdSide=triangle.getThirdSide();
-        if(firstSide > secondSide+thirdSide || secondSide > firstSide+thirdSide || thirdSide > firstSide+secondSide){
-            return false;
-        }
-        return true;
+        return (firstSide > secondSide+thirdSide || secondSide > firstSide+thirdSide || thirdSide > firstSide+secondSide);
     }
 }
