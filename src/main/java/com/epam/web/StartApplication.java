@@ -1,5 +1,6 @@
 package com.epam.web;
 
+import com.epam.web.entity.Triangle;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

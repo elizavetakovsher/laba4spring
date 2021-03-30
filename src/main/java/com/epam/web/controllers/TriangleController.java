@@ -10,6 +10,7 @@ import com.epam.web.logic.service.TriangleService;
 import com.epam.web.logic.validator.InputValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TriangleController {
 
     private Logger logger = LoggerFactory.getLogger(TriangleCalculator.class);
+    @Autowired
+    private Service<TriangleParameters, Triangle> service;
 
     @GetMapping("/calculateTriangle")
     public TriangleParameters calculateTriangle(@RequestParam double firstSide,
@@ -28,7 +31,6 @@ public class TriangleController {
             throw new InputException("One of sides is smaller then 0");
         }
         Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
-        Service<TriangleParameters, Triangle> service = new TriangleService();
         return service.doService(triangle);
     }
 

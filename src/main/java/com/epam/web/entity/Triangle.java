@@ -1,5 +1,7 @@
 package com.epam.web.entity;
 
+import java.util.Objects;
+
 public class Triangle {
     private double fistSide;
     private double secondSide;
@@ -21,5 +23,18 @@ public class Triangle {
 
     public double getThirdSide() {
         return thirdSide;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return Double.compare(triangle.fistSide, fistSide) == 0 && Double.compare(triangle.secondSide, secondSide) == 0 && Double.compare(triangle.thirdSide, thirdSide) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fistSide, secondSide, thirdSide);
     }
 }
