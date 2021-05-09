@@ -17,21 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @org.springframework.web.bind.annotation.RestController
 public class TriangleController {
 
-    private Logger logger = LoggerFactory.getLogger(TriangleCalculator.class);
     @Autowired
     private Service<TriangleParameters, Triangle> service;
 
     @GetMapping("/calculateTriangle")
     public TriangleParameters calculateTriangle(@RequestParam double firstSide,
                                                 @RequestParam double secondSide,
-                                                @RequestParam double thirdSide) throws TriangleCalculatorException, InputException {
+                                                @RequestParam double thirdSide) throws TriangleCalculatorException, InputException{
 
-        if(new InputValidator().isValidInput(firstSide, secondSide, thirdSide)){
-            logger.error("One of sides is smaller then 0");
-            throw new InputException("One of sides is smaller then 0");
-        }
-        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
-        return service.doService(triangle);
+        return service.doService(new Triangle(firstSide, secondSide, thirdSide));
     }
 
 }
